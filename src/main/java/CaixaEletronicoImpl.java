@@ -17,7 +17,7 @@ public class CaixaEletronicoImpl implements CaixaEletronico {
 
         Map<EnumNotas, Integer> saque = new HashMap<>();
         Double restante = valor;
-        while (restante >= 10) {
+        while (restante != 0) {
             Optional<EnumNotas> notaMaisAltaDisponivel = encontrarNotaMaisAltaParaDeterminadoValor(restante);
             if (notaMaisAltaDisponivel.isPresent()) {
                 saque.merge(notaMaisAltaDisponivel.get(), 1, Integer::sum);
